@@ -1,4 +1,8 @@
 import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
+import { CardForPage } from './CardForPage';
+
+
 
 // React component that renders the component StartPage with
 // a list of pages. Each page has a title, description, image and path
@@ -14,8 +18,21 @@ import React from 'react';
 //     description: String
 //     path: String
 //     image: String 
+// use bootstrap from the react-bootstrap package
 
 export default function StartPage(props) {
-  // <tbd> please provide this function
-  return (<div>to be done</div>)
+  return (
+    <Container fluid>
+      <h1 className='border-bottom'>Welcome to AWSomeMath - try our calculators</h1>
+      <Row className='my-4'>
+        {
+          props.pages?.map((page, idx) =>
+            <Col md='auto' key={ idx }>
+              <CardForPage { ...page } />
+            </Col>
+          )
+        }
+      </Row>
+    </Container>
+  );
 }
