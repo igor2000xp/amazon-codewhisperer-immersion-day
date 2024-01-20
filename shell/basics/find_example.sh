@@ -1,3 +1,3 @@
 #!/bin/bash
 touch test.txt
-find . -n
+find . -name "*.txt" -exec cp {} test.txt \;
